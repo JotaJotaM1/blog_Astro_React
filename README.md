@@ -14,10 +14,7 @@ Este proyecto es un blog personal construido con Astro y React que presenta una 
 
 ## 📦 Estructura del Proyecto
 
-
-## 📦 Estructura del Proyecto
-
-![Estructura](./public/images/Estructura.png)
+<img src="./public/images/Estructura.png" alt="Diagrama de estructura de archivos" width="400" style="display: block; margin: 0 auto;">
 
 ## 🔧 Tecnologías utilizadas
 
