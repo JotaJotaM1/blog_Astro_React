@@ -1,11 +1,31 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import MainLayout from "../layouts/MainLayout.astro";
+import LatestPosts from "../components/react/LatestPosts.jsx";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Importar todos los archivos .md en /blog
+const posts = await Astro.glob("./blog/*.md");
+// Ordenar por fecha (más reciente primero)
+const latestPosts = posts
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).getTime() -
+      new Date(a.frontmatter.date).getTime()
+  )
+  .slice(0, 3);
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout title="Mi Blog" description="Un blog creado con Astro y React">
+  <div class="article-content">
+    <h1>Bienvenido a mi blog</h1>
+    <p>Este es un blog construido con Astro y React.</p>
+    <p class="textoPrueba">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, assumenda
+      necessitatibus aliquam est unde corrupti, mollitia doloribus architecto
+      suscipit impedit nam similique placeat ea consequatur, voluptatum nostrum
+      nisi facilis odit?
+    </p>
+    <h2>Últimos artículos</h2>
+    <LatestPosts posts={latestPosts} client:load />
+  </div>
+</MainLayout>
+

@@ -1,0 +1,20 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import PostList from "../../components/react/PostList.jsx";
+
+const posts = await Astro.glob("./*.md"); // Carga archivos en el mismo directorio
+const latestPosts = posts
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
+  )
+  .slice(0, 3);
+  console.log(posts)
+---
+
+<MainLayout title="Blog" description="Artículos del blog" blogPage={true}>
+  <h1>Todos los artículos</h1>
+  <PostList posts={latestPosts} client:load />
+</MainLayout>
+
+

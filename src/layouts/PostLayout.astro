@@ -1,0 +1,85 @@
+---
+import MainLayout from "./MainLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<MainLayout title={frontmatter.title} description={frontmatter.description}>
+  <article class="blog-post">
+    <h1>{frontmatter.title}</h1>
+    <p class="post-meta">Por {frontmatter.author} • {new Date(frontmatter.date).toLocaleDateString()}</p>
+    <div class="markdown-content">
+      <slot /> <!-- Contenido del artículo -->
+    </div>
+  </article>
+</MainLayout>
+
+<style>
+  .blog-post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .post-meta {
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  /* Estilos para el contenido Markdown */
+  .markdown-content :global(h2) {
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .markdown-content :global(h3) {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #444;
+    font-weight: bold;
+  }
+  
+  .markdown-content :global(p) {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .markdown-content :global(ul), .markdown-content :global(ol) {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .markdown-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+  
+  .markdown-content :global(a) {
+    color: #0066cc;
+    text-decoration: underline;
+  }
+  
+  .markdown-content :global(code) {
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: monospace;
+  }
+  
+  .markdown-content :global(pre) {
+    padding: 2rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .markdown-content :global(blockquote) {
+    border-left: 4px solid #ddd;
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: italic;
+  }
+  
+</style>

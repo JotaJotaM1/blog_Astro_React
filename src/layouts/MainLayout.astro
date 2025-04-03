@@ -1,0 +1,26 @@
+---
+const { title, description } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Inicio</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">Acerca de</a>
+      </nav>
+    </header>
+    <slot />
+    <footer>
+      <p>© {new Date().getFullYear()} Mi Blog con Astro y React</p>
+    </footer>
+  </body>
+</html>
