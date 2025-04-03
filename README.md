@@ -17,42 +17,7 @@ Este proyecto es un blog personal construido con Astro y React que presenta una 
 
 ## 📦 Estructura del Proyecto
 
-MY-ASTRO-BLOG/
-├── astro/
-├── vscode/
-├── node_modules/
-├── public/
-│ ├── images/
-│ └── favicon.svg
-├── src/
-│ ├── assets/
-│ │ ├── astro.svg
-│ │ └── background.svg
-│ ├── components/
-│ │ └── react/
-│ │ ├── LatestPosts.jsx
-│ │ └── PostList.jsx
-│ ├── layouts/
-│ │ ├── MainLayout.astro
-│ │ └── PostLayout.astro
-│ └── pages/
-│ ├── blog/
-│ │ ├── index.astro
-│ │ ├── ultimas-novedades-css.md
-│ │ └── ultimas-novedades-xia.md
-│ ├── about.astro
-│ └── index.astro
-├── styles/
-│ ├── blog.css
-│ └── global.css
-├── .gitignore
-├── astro.config.mjs
-├── package-lock.json
-├── package.json
-└── README.md
-
-
-
+![Estructura](./public/images/Estructura.png)
 
 ## 🔧 Tecnologías utilizadas
 
